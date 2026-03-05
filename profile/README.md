@@ -17,9 +17,9 @@
 ## What we build
 
 > **Structed AI eliminates the hours spent extracting requirements from client calls.**
-> Our AI agent runs structured interviews, captures everything that matters, and delivers a ready brief — automatically.
+> Our AI agent runs structured interviews, captures everything that matters, and delivers a ready brief automatically.
 
-Agencies and freelancers spend **3–4 hours per project** on discovery: chasing answers, filling forms, decoding vague feedback. Structed replaces that with an AI-guided interview that runs itself and outputs a complete, actionable brief.
+Agencies and freelancers spend **3-4 hours per project** on discovery: chasing answers, filling forms, decoding vague feedback. Structed replaces that with an AI-guided interview that runs itself and outputs a complete, actionable brief.
 
 **97% extraction accuracy. Zero manual work.**
 
@@ -33,9 +33,9 @@ Agencies and freelancers spend **3–4 hours per project** on discovery: chasing
 
 **Before Structed**
 
-- Scattered notes from 3 different calls
-- Client forgets half the requirements
-- You spend hours writing the brief yourself
+- Scattered notes from multiple calls
+- Client forgets key requirements
+- Hours spent writing briefs manually
 - Misunderstandings discovered mid-project
 - 4 hours lost on discovery, every time
 
@@ -45,7 +45,7 @@ Agencies and freelancers spend **3–4 hours per project** on discovery: chasing
 **After Structed**
 
 - AI conducts the client interview
-- Every requirement captured in real time
+- Requirements captured in real time
 - Structured brief generated automatically
 - Clarity before work begins
 - Discovery done in 20 minutes
@@ -56,132 +56,79 @@ Agencies and freelancers spend **3–4 hours per project** on discovery: chasing
 
 ---
 
+## Product flow
+
+```mermaid
+flowchart LR
+    A["Inbound lead"] --> B["AI-guided discovery"]
+    B --> C["Structured brief"]
+    C --> D["Faster project kickoff"]
+    D --> E["Higher delivery quality"]
+    E --> F["Retention and referrals"]
+
+    classDef primary fill:#EEF2FF,stroke:#4F46E5,stroke-width:2px,color:#1F2937;
+    classDef impact fill:#ECFDF5,stroke:#059669,stroke-width:2px,color:#064E3B;
+
+    class A,B,C primary;
+    class D,E,F impact;
+```
+
+---
+
+## Architecture
+
+```mermaid
+flowchart LR
+    C["Client channel"] --> I["Conversational intelligence"]
+    I --> V["Structured validation layer"]
+    V --> B["Execution-ready brief"]
+    B --> T["Team delivery workflow"]
+
+    classDef chain fill:#F8FAFC,stroke:#334155,stroke-width:1.5px,color:#0F172A;
+    class C,I,V,B,T chain;
+```
+
+Structed combines conversational AI with a structured intake pipeline to transform unstructured client input into consistent, execution-ready briefs.
+
+---
+
+## Growth engine
+
+```mermaid
+flowchart LR
+    A["More client interviews"] --> B["More structured data"]
+    B --> C["Better extraction quality"]
+    C --> D["Stronger user outcomes"]
+    D --> E["Expansion and referrals"]
+    E --> A
+
+    classDef fly fill:#FFF7ED,stroke:#EA580C,stroke-width:2px,color:#7C2D12;
+    class A,B,C,D,E fly;
+```
+
+---
+
+## Technology
+
+- AI-native product architecture built for rapid iteration and measurable quality
+- Modular platform design that scales across use cases, team sizes, and geographies
+- Production-grade infrastructure with reliability and operational discipline
+- Security and compliance by design, aligned with agency and SMB expectations
+- Human-in-the-loop quality controls to keep output accurate and business-ready
+
+---
+
 ## Who it's for
 
 <div align="center">
 
 |  | Small agencies | Independent consultants | Freelancers |
 |---|---|---|---|
-| Team size | 3–10 people | Solo or small team | Solo |
+| Team size | 3-10 people | Solo or small team | Solo |
 | Pain | Client briefs always incomplete | Discovery calls eat the calendar | Can't afford back-and-forth |
 | Value | Consistent briefs across all projects | Structured intake without the admin | Professional onboarding from day one |
 
 </div>
-
----
-
-## Tech stack
-
-<div align="center">
-
-### Frontend
-![Angular](https://img.shields.io/badge/Angular%2020-DD0031?style=flat-square&logo=angular&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![PrimeNG](https://img.shields.io/badge/PrimeNG-0EA5E9?style=flat-square&logo=primeng&logoColor=white)
-
-### Backend
-![NestJS](https://img.shields.io/badge/NestJS%2011-E0234E?style=flat-square&logo=nestjs&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![TypeORM](https://img.shields.io/badge/TypeORM-FE0803?style=flat-square&logo=typeorm&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)
-
-### AI / ML
-![Python](https://img.shields.io/badge/Python%203.12-3776AB?style=flat-square&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)
-
-### Infrastructure
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-FF9900?style=flat-square&logo=amazonaws&logoColor=white)
-
-</div>
-
----
-
-## Architecture
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        Client Browser                        │
-│                   Angular 20 + PrimeNG SPA                  │
-└──────────────────────────┬──────────────────────────────────┘
-                           │  REST / SSE
-┌──────────────────────────▼──────────────────────────────────┐
-│                    NestJS 11 Backend                         │
-│   Auth · Projects · Interviews · Briefs · Webhooks          │
-└──────────┬───────────────────────────────────┬──────────────┘
-           │  PostgreSQL (TypeORM)              │  HTTP
-           │                         ┌──────────▼──────────────┐
-           │                         │   Python / FastAPI       │
-           │                         │   AI Microservice        │
-           │                         │                          │
-           │                         │  LangGraph State Machine │
-           │                         │  Stage-based Prompts     │
-           │                         │  OpenAI / OpenRouter     │
-           │                         └──────────┬──────────────┘
-           │                                    │ PostgreSQL
-┌──────────▼────────────────────────────────────▼─────────────┐
-│                        PostgreSQL                            │
-│    Users · Projects · Interviews · Messages · Briefs        │
-└─────────────────────────────────────────────────────────────┘
-```
-
-The AI pipeline runs as a separate microservice — a multi-stage LangGraph state machine that processes client responses, extracts structured data at each stage, and returns a complete brief via webhook.
-
----
-
-## Repositories
-
-<details>
-<summary><b>📦 Core repositories</b></summary>
-
-<br/>
-
-| Repository | Description | Stack |
-|---|---|---|
-| `structed-ai` | Main application monorepo | Angular · NestJS · FastAPI · LangGraph |
-| `infrastructure` | Deployment configs and environments | Docker · GitHub Actions |
-
-</details>
-
-<details>
-<summary><b>🗺 Project structure</b></summary>
-
-<br/>
-
-```
-structed-ai/
-├── frontend/          # Angular 20 SPA
-├── backend/           # NestJS 11 REST API
-├── ai/                # Python FastAPI + LangGraph pipeline
-├── docker/            # Service configs
-├── .github/workflows/ # CI/CD pipelines
-├── docker-compose.yml
-└── Makefile
-```
-
-</details>
-
-<details>
-<summary><b>🚀 Local setup</b></summary>
-
-<br/>
-
-```bash
-git clone https://github.com/structed-ai/structed-ai
-cd structed-ai
-cp .env.example .env
-docker compose up --build
-```
-
-App will be available at `http://localhost:4200`.
-
-See [CLAUDE.md](./CLAUDE.md) for full developer documentation.
-
-</details>
 
 ---
 
@@ -193,7 +140,7 @@ See [CLAUDE.md](./CLAUDE.md) for full developer documentation.
 |---|---|
 | AI extraction accuracy | **97%** |
 | Prototype rating (user feedback) | **8.5 / 10** |
-| Organic visitors / month | **300–500** |
+| Organic visitors / month | **300-500** |
 | Pipeline customers | **~16** |
 | MVP completion | **~80%** |
 
@@ -209,41 +156,25 @@ See [CLAUDE.md](./CLAUDE.md) for full developer documentation.
 |---|---|---|
 | Price | $110 / year | $150 / month |
 | Interviews | Unlimited | Unlimited |
-| Projects | ✓ | ✓ |
-| Auto-generated briefs | ✓ | ✓ |
-| Team seats | — | ✓ |
+| Projects | Yes | Yes |
+| Auto-generated briefs | Yes | Yes |
+| Team seats | - | Yes |
 
 </div>
 
 ---
 
-## Roadmap
-
-- [x] Core AI interview engine (LangGraph state machine)
-- [x] Multi-stage requirement extraction
-- [x] Structured brief generation
-- [x] User auth + Google SSO
-- [x] Client interview link (no login required)
-- [ ] Billing and subscription (Stripe)
-- [ ] Regeneration flow
-- [ ] API documentation (OpenAPI / Swagger)
-- [ ] Security hardening and GDPR compliance
-- [ ] Production observability (Sentry, OpenTelemetry)
-- [ ] Team workspace features
-
----
-
 ## Team
 
-**Structed AI Ltd** — incorporated in the United Kingdom, August 2025.
+**Structed AI Ltd** - incorporated in the United Kingdom, August 2025.  
 Stage: Pre-seed. Raising SEIS round.
 
 <div align="center">
 
 | | Role | Contact |
 |---|---|---|
-| **Marina Shmayger** | CEO — product, GTM, fundraising | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marina-shmayger/) [![Email](https://img.shields.io/badge/marina@structed.ai-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:marina@structed.ai) |
-| **Denys Korolkov** | CTO — architecture, engineering, AI systems | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/denyskorolkov/) |
+| **Marina Shmayger** | CEO - product, GTM, fundraising | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marina-shmayger/) [![Email](https://img.shields.io/badge/marina@structed.ai-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:marina@structed.ai) |
+| **Denys Korolkov** | CTO - platform and AI | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/denyskorolkov/) |
 
 </div>
 
